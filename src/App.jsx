@@ -1,13 +1,13 @@
 
 import './App.css'
-
+import Cover from "./components/Cover/Cover";
 function App() {
  
 
   return (
-    <>
-     <h1>hi</h1>
-    </>
+    <div className="App">
+     <Cover/>
+    </div>
   )
 }
 

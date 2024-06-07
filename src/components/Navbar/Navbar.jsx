@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Navbar.css";
+
+const ACCESS_KEY = "tQjXSiMi5c5unpx9xb7SrargUnuPGuiIIkhvpSYWiM4";
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,11 +23,29 @@ const Navbar = () => {
     "Experimental",
     "Animals",
     "Fashion & Beauty",
-    "People",
   ]);
+  const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = async (e) => {
     setSearchTerm(e.target.value);
+    if (e.target.value.length > 2) {
+      try {
+        const response = await axios.get(
+          `https://api.unsplash.com/search/photos`,
+          {
+            params: { query: e.target.value },
+            headers: {
+              Authorization: `Client-ID ${ACCESS_KEY}`,
+            },
+          }
+        );
+        setSearchResults(response.data.results);
+      } catch (error) {
+        console.error("Error fetching search results", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
   };
 
   return (
@@ -32,7 +53,9 @@ const Navbar = () => {
       <div className="navbar-top">
         <div className="navbar-left">
           <div className="navbar-logo">
-            <img src="/src/assets/ms-icon.png" alt="Logo" />
+            <Link to="/">
+              <img src="/src/assets/ms-icon.png" alt="Logo" />
+            </Link>
           </div>
           <div className="navbar-search">
             <input
@@ -58,11 +81,19 @@ const Navbar = () => {
       <div className="navbar-categories">
         {categories.map((category, index) => (
           <React.Fragment key={index}>
-            <Link to={`/category/${category}`}>
-              {category}
-            </Link>
+            <Link to={`/category/${category}`}>{category}</Link>
             {category === "Unsplash+" && <hr />}
           </React.Fragment>
+        ))}
+      </div>
+      <div className="search-results">
+        {searchResults.map((result) => (
+          <div key={result.id} className="search-result">
+            <img
+              src={result.urls.thumb}
+              alt={result.description || result.alt_description}
+            />
+          </div>
         ))}
       </div>
     </div>

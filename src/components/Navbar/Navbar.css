@@ -105,10 +105,18 @@
 .search-results {
   display: flex;
   flex-wrap: wrap;
+  padding: 10px 20px;
 }
 
 .search-result {
   margin: 10px;
+}
+
+.search-result img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /* Responsive Styles */

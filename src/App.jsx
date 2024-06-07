@@ -1,11 +1,16 @@
-import "./App.css";
-import Navbar from "./components/Navbar/Navbar"; // Ensure the casing matches the actual file name
+
+import Navbar from "./components/Navbar/Navbar"; 
+import Photo  from "./components/Photo/Photo"
+import './App.css'
 
 function App() {
   return (
     <>
+   
       <Navbar />
-      <h1>hi</h1>
+    
+     <Photo />
+
     </>
   );
 }

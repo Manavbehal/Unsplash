@@ -1,0 +1,87 @@
+/* src/Navbar.css */
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-search input {
+  padding: 8px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a {
+  margin-right: 20px;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.navbar-actions .login-button,
+.navbar-actions .submit-button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar-actions .login-button {
+  background-color: transparent;
+  color: #333;
+}
+
+.navbar-actions .submit-button {
+  background-color: #0073e6;
+  color: #fff;
+}
+
+.navbar-categories {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 20px;
+  white-space: nowrap;
+  border-top: 1px solid #eaeaea;
+}
+
+.navbar-categories a {
+  margin-right: 20px;
+  color: #333;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-categories a:hover {
+  text-decoration: underline;
+}

@@ -4,7 +4,6 @@ import axios from 'axios';
 // Load environment variables
 const ACCESS_KEY = 'tQjXSiMi5c5unpx9xb7SrargUnuPGuiIIkhvpSYWiM4';
 
-
 // Create an axios instance with the base URL and headers
 const apiClient = axios.create({
   baseURL: 'https://api.unsplash.com',
@@ -14,9 +13,10 @@ const apiClient = axios.create({
 });
 
 // Function to list photos
-const listPhotos = ({ page, perPage }) => {
-  return apiClient.get('/photos', {
+const listPhotos = ({ page, perPage, query }) => {
+  return apiClient.get('/search/photos', {
     params: {
+      query,
       page,
       per_page: perPage,
     },

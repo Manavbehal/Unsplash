@@ -1,5 +1,5 @@
-// src/Navbar.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -32,7 +32,6 @@ const Navbar = () => {
       <div className="navbar-top">
         <div className="navbar-left">
           <div className="navbar-logo">
-            {/* Add your logo here */}
             <img src="/src/assets/ms-icon.png" alt="Logo" />
           </div>
           <div className="navbar-search">
@@ -46,9 +45,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-right">
           <div className="navbar-links">
-            <a href="/">Explore</a>
-            <a href="/">Advertise</a>
-            <a href="/">Get Unsplash+</a>
+            <Link to="/">Explore</Link>
+            <Link to="/">Advertise</Link>
+            <Link to="/">Get Unsplash+</Link>
           </div>
           <div className="navbar-actions">
             <button className="login-button">Log in</button>
@@ -58,9 +57,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-categories">
         {categories.map((category, index) => (
-          <a href={`#${category}`} key={index}>
-            {category}
-          </a>
+          <React.Fragment key={index}>
+            <Link to={`/category/${category}`}>
+              {category}
+            </Link>
+            {category === "Unsplash+" && <hr />}
+          </React.Fragment>
         ))}
       </div>
     </div>

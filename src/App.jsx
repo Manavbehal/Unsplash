@@ -1,22 +1,23 @@
 
-import Navbar from "./components/Navbar/Navbar"; 
-import Photo  from "./components/Photo/Photo"
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Photo from './components/Photo/Photo'; 
+import Navbar from './components/Navbar/Navbar'; 
 import Cover from "./components/Cover/Cover";
 
 function App() {
   return (
-<>
-    <div className="App">
-     <Cover/>
-    </div>
-    
-   
+    <Router>
       <Navbar />
+      <div className="App">
+     <Cover/>
+      </div>
     
-     <Photo />
-
-    </>
+      <Routes>
+        <Route path="/" element={<Photo />} />
+        <Route path="/category/:category" element={<Photo />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -30,7 +30,11 @@
   margin-left: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 300px;
+  width: 440%;
+  height: 20px;
+  border-radius: 50px;
+  background-color:  #eeeeee;
+  padding-left: 20px;
 }
 
 .navbar-right {
@@ -72,7 +76,7 @@
   overflow-x: auto;
   padding: 10px 20px;
   white-space: nowrap;
-  border-top: 1px solid #eaeaea;
+ 
 }
 
 .navbar-categories a {
@@ -84,4 +88,14 @@
 
 .navbar-categories a:hover {
   text-decoration: underline;
+}
+
+
+
+.navbar-categories hr {
+ margin-top:0px;
+margin-right: 12px;
+ margin-left: -5px;
+  height: 20px;
+  border-top: 10px solid grey;
 }

@@ -1,4 +1,4 @@
-
+import Photo  from "./components/Photo/Photo"
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-     <h1>hi</h1>
+     <Photo />
     </>
   )
 }

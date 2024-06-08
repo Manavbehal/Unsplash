@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
 import { api } from "../../Api"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const ACCESS_KEY = "tQjXSiMi5c5unpx9xb7SrargUnuPGuiIIkhvpSYWiM4";
 
@@ -113,6 +115,10 @@ const Navbar = () => {
           <div className="navbar-actions">
             <button className="login-button">Log in</button>
             <button className="submit-button">Submit an image</button>
+          </div>
+          <div className="hidden-1">
+          <FontAwesomeIcon icon={faUser} />
+          <FontAwesomeIcon icon={faBars} />
           </div>
         </div>
       </div>

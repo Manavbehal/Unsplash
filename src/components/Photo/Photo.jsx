@@ -1,17 +1,17 @@
-// src/components/Photo/Photo.js
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { api } from '../../Api'; // Adjust the path as needed
-import SinglePhoto from './SinglePhoto'; // Adjust the path as needed
+import { api } from '../../Api'; 
+import SinglePhoto from './SinglePhoto'; 
 import { css } from "aphrodite";
 import Masonry from "react-responsive-masonry";
-import navStyle from "../../Styles/NavbarStyle"; // Adjust the path as needed
+import navStyle from "../../Styles/NavbarStyle"; 
 
 function Photo() {
   const { category } = useParams();
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [columnsCount, setColumnsCount] = useState(3); 
 
   const fetchPhotos = useCallback(async () => {
     setIsLoading(true);
@@ -52,9 +52,24 @@ function Photo() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isLoading]);
 
+  useEffect(() => {
+    
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setColumnsCount(1); 
+      } else {
+        setColumnsCount(3); 
+      }
+    };
+
+    handleResize(); // Initial call
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className={css(navStyle.marginPhotos)}>
-      <Masonry columnsCount={3} gutter="20px">
+      <Masonry columnsCount={columnsCount} gutter="20px">
         {photos.length && photos.map((photo, i) => (
           <SinglePhoto
             key={i}

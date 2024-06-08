@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { api } from "../../Api"; // Import your API functions here
 
 const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,6 +27,43 @@ const Navbar = () => {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
+
+  useEffect(() => {
+    // Define a function to debounce API requests
+    const debounce = (func, delay) => {
+      let timer;
+      return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+      };
+    };
+
+    // Function to fetch photos from the API
+    const fetchPhotos = async () => {
+      try {
+        // Send request to API with the searchTerm
+        const response = await api.photos.search({ query: searchTerm });
+        // Handle response and update the Photo component accordingly
+        // Example: setPhotos(response.data)
+        console.log("Photos:", response.data);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      }
+    };
+
+    // Debounce the fetchPhotos function with a delay of 500 milliseconds
+    const debouncedFetchPhotos = debounce(fetchPhotos, 500);
+
+    // Trigger the debouncedFetchPhotos function when searchTerm changes
+    if (searchTerm) {
+      debouncedFetchPhotos();
+    }
+
+    // Clean up
+    return () => {
+      clearTimeout(debouncedFetchPhotos);
+    };
+  }, [searchTerm]);
 
   return (
     <div className="navbar">
@@ -58,9 +96,7 @@ const Navbar = () => {
       <div className="navbar-categories">
         {categories.map((category, index) => (
           <React.Fragment key={index}>
-            <Link to={`/category/${category}`}>
-              {category}
-            </Link>
+            <Link to={`/category/${category}`}>{category}</Link>
             {category === "Unsplash+" && <hr />}
           </React.Fragment>
         ))}

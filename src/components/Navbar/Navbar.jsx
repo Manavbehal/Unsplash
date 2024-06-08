@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
-import { api } from "../../Api"; // Import your API functions here
+import { api } from "../../Api"; 
 
 const ACCESS_KEY = "tQjXSiMi5c5unpx9xb7SrargUnuPGuiIIkhvpSYWiM4";
 

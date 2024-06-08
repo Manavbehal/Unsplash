@@ -1,6 +1,6 @@
 import React from "react";
 import "./Cover.css";
-
+import logo from '../../images/squarespace.png'
 const Cover = () => {
   return (
     <div className="cover-container">
@@ -10,7 +10,7 @@ const Cover = () => {
         <p>Powered by creators everywhere.</p>
         <div className="supported-by">
           <p>Supported by</p>
-          <img src="xyz" alt="Squarespace" />
+          <img src={logo} alt="Squarespace" />
         </div>
         <div className="search-bar">
           <button className="search-button">

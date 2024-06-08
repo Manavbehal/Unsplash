@@ -36,7 +36,19 @@ const Cover = () => {
           <p>Full legal protections.</p>
           <p>No ads.</p>
         </div>
+        <div className="unsplash-plus hidden">
+          <p>Discover Unsplash+</p>
+          <p>Unlimited downloads.</p>
+          <p>Full legal protections.</p>
+          <p>No ads.</p>
+        </div>
       </div>
+
+
+      <div className="supported-by-hidden">
+          <p>Supported by</p>
+          <img src={logo} alt="Squarespace" />
+        </div>
     </div>
   );
 };

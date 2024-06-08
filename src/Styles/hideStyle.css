@@ -47,3 +47,49 @@
     transition: 2s ease-in-out;
 }
 
+.likeDiv-hidden{
+    display: none;
+
+  }
+  .footerDiv-hidden{
+      display: none;
+  }
+  .downloadPhoto-hidden{
+      display: none;
+  }
+
+@media (max-width: 768px) {
+    .likeDiv{
+      display: none;
+    }
+    .footerDiv{
+        display: none;
+    }
+    .downloadPhoto{
+        display: none;
+    }
+
+    .likeDiv-hidden{
+        
+        display: flex;
+        margin-top: 5px;
+      margin-bottom: 15px;
+        
+      }
+      .footerDiv-hidden{
+          
+          display: flex;
+          margin-bottom: 5px;
+      }
+      .downloadPhoto-hidden{
+          
+          display: flex;
+          position: absolute;
+          right:0;
+        }
+
+
+  
+  
+  }
+

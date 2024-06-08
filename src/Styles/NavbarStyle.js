@@ -124,7 +124,10 @@ const navStyle = StyleSheet.create({
   marginPhotos: {
     marginBottom: "20px",
     marginLeft: "50px",
-    marginRight: "50px"
+    marginRight: "50px",
+    '@media (max-width: 768px)': {
+      margin: '0px',
+    },
   }
 });
 

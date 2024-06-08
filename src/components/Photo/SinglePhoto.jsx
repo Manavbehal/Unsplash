@@ -4,9 +4,10 @@ import { StyleSheet, css } from "aphrodite/no-important";
 import buttonStyle from "../../Styles/ButtonStyle";
 import download from "../../images/download_icon.png";
 import "../../Styles/hideStyle.css";
+import './Photo.css';
 const phtoStyle = StyleSheet.create({
   heartIcon: {
-    color: "#f54b48"
+    color: "#767676"
   },
   imageStyle: {
     width: "100%",
@@ -19,7 +20,10 @@ const phtoStyle = StyleSheet.create({
   fullNameCss: {
     color: "white",
     position: "relative",
-    top: "5px"
+    top: "5px",
+    '@media (max-width: 768px)': {
+      color:"black",
+    },
   },
   userIcon: {
     "border-radius": "18px"
@@ -47,13 +51,52 @@ const photo = ({
           <span className={css(phtoStyle.heartIcon)}>
             <i className="fas fa-heart" />
           </span>{" "}
-          {likes}
+       
         </div>
         <div className={css(buttonStyle.button, phtoStyle.buttonMargin)}>
-          <i className="fas fa-plus" /> Collect
+          <i className="fas fa-plus" /> 
         </div>
       </div>
+
+      <div className="footerDiv-hidden">
+        <img src={profilePhoto} className={css(phtoStyle.userIcon)} />
+        <div className={css(phtoStyle.buttonMargin)}>
+          <span
+            className={css(phtoStyle.fullNameCss)}
+          >{`${firstName} ${lastName}`}</span>
+        </div>
+      
+
+
+      
+      </div>
       <img src={photoUrl} className={css(phtoStyle.imageStyle)} />
+
+      <div className="likeDiv-hidden">
+        <div className={css(buttonStyle.button)}>
+          <span className={css(phtoStyle.heartIcon)}>
+            <i className="fas fa-heart" />
+          </span>{" "}
+       
+        </div>
+        <div className={css(buttonStyle.button, phtoStyle.buttonMargin)}>
+          <i className="fas fa-plus" /> 
+        </div>
+        <div className="downloadPhoto-hidden">
+        <a
+          className={css(buttonStyle.button)}
+          href={`${downloadUrl}?force=true`}
+          target="_blank"
+        >
+          <img src={download} className={css(phtoStyle.downloadIcon)} />
+        </a>
+
+        
+      </div>
+      </div>
+
+
+
       <div className="footerDiv">
         <img src={profilePhoto} className={css(phtoStyle.userIcon)} />
         <div className={css(phtoStyle.buttonMargin)}>
@@ -62,6 +105,8 @@ const photo = ({
           >{`${firstName} ${lastName}`}</span>
         </div>
       </div>
+
+
       <div className="downloadPhoto">
         <a
           className={css(buttonStyle.button)}
@@ -70,6 +115,8 @@ const photo = ({
         >
           <img src={download} className={css(phtoStyle.downloadIcon)} />
         </a>
+
+
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
-
-import React from 'react';
-import './Cover.css';
+import React from "react";
+import "./Cover.css";
 
 const Cover = () => {
   return (
@@ -14,7 +13,7 @@ const Cover = () => {
           <img src="xyz" alt="Squarespace" />
         </div>
         <div className="search-bar">
-        <button className="search-button">
+          <button className="search-button">
             <i className="fas fa-search"></i>
           </button>
           <input type="text" placeholder="Search photos and illustrations" />
@@ -25,7 +24,10 @@ const Cover = () => {
       </div>
       <div className="cover-right">
         <div className="info-box">
-        <p><span className="bold-text">Yes, it’s really free.</span> All images can be downloaded and used for personal or commercial projects.</p>
+          <p>
+            <span className="bold-text">Yes, it’s really free.</span> All images
+            can be downloaded and used for personal or commercial projects.
+          </p>
           <a href="#">Learn about our License</a>
         </div>
         <div className="unsplash-plus">

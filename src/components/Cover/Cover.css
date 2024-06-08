@@ -127,6 +127,7 @@
   font-size: 16px;
   color: #333;
 }
+
 .search-bar .search-button,
 .search-bar .visual-search-button {
   background-color: transparent;
@@ -136,11 +137,16 @@
   padding-right: 15px;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
   .cover-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 1px;
+    width: 98%;
+    margin-left: 1px;
+    margin-bottom: 30px;
   }
 
   .cover-left,
@@ -151,6 +157,11 @@
   .cover-right {
     flex-direction: column; /* Change back to column on small screens */
     align-items: center;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
   }
 
   .search-bar input {

@@ -1,0 +1,11 @@
+/* App.css */
+
+.App {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 0 1rem;
+  }
+}
